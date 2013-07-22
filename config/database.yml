@@ -1,0 +1,28 @@
+#base: &base
+#  adapter: mysql2
+#  encoding: utf8
+#  reconnect: false
+#  username: root
+#  password: test
+#  socket: /tmp/mysql.sock
+#  pool: 5
+
+base: &base
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *base
+#  database: chef_rails_dev
+
+test:
+  <<: *base
+#  database: chef_rails_test
+
+production:
+  <<: *base
+#  database: chef_rails
+#  socket: /var/lib/mysql/mysql.sock
+
